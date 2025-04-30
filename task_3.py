@@ -33,10 +33,10 @@ class PointsForMeters:
 
 class TotalPoints(PointsForPlace, PointsForMeters):
     
-    @staticmethod
-    def get_total_points(meters: int, place: int) -> int:
-        points_for_meters = PointsForMeters.get_points_for_meters(meters)
-        points_for_place = PointsForPlace.get_points_for_place(place)
+    @classmethod
+    def get_total_points(cls, meters: int, place: int) -> int:
+        points_for_meters = super().get_points_for_meters(meters)
+        points_for_place = super().get_points_for_place(place)
         total = points_for_meters + points_for_place  # переменная total нужна по условию задачи
         return total
 
